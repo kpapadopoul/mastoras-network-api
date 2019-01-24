@@ -21,7 +21,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @RequestMapping(value = "users", method = RequestMethod.GET)
-    private List<User> list() {
+    public List<User> list() {
         return userRepository.findAll();
     }
 
