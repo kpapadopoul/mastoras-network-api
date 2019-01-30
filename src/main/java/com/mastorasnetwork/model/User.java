@@ -1,16 +1,12 @@
 package com.mastorasnetwork.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private @Id Long id;
     private String firstName;
     private String lastName;
     private String address;
@@ -21,23 +17,6 @@ public class User {
     private String password;
     private String homePhone;
     private String cellPhone;
-
-    public User() {
-    }
-
-    public User(String firstName, String lastName, String address, String postalCode, String city,
-                String country, String email, String password, String homePhone, String cellPhone) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.postalCode = postalCode;
-        this.city = city;
-        this.country = country;
-        this.email = email;
-        this.password = password;
-        this.homePhone = homePhone;
-        this.cellPhone = cellPhone;
-    }
 
     public Long getId() {
         return id;
