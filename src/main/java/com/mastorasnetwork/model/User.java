@@ -22,6 +22,23 @@ public class User {
     private String homePhone;
     private String cellPhone;
 
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String address, String postalCode, String city,
+                String country, String email, String password, String homePhone, String cellPhone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
+        this.email = email;
+        this.password = password;
+        this.homePhone = homePhone;
+        this.cellPhone = cellPhone;
+    }
+
     public Long getId() {
         return id;
     }

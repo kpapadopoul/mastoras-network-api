@@ -4,10 +4,13 @@ import com.mastorasnetwork.model.User;
 import com.mastorasnetwork.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,17 +23,17 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "users", method = RequestMethod.GET)
+    @GetMapping("users")
     public List<User> list() {
         return userRepository.findAll();
     }
 
-    @RequestMapping(value = "users", method = RequestMethod.POST)
+    @PostMapping("users")
     public User create(@RequestBody User user) {
         return userRepository.saveAndFlush(user);
     }
 
-    @RequestMapping(value = "users/{id}", method = RequestMethod.GET)
+    @GetMapping("users/{id}")
     public User get(@PathVariable Long id) {
 
         Optional<User> user = userRepository.findById(id);
@@ -43,7 +46,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "users/{id}", method = RequestMethod.PUT)
+    @PutMapping("users/{id}")
     public User update(@PathVariable Long id, @RequestBody User user) {
 
         Optional<User> existingUser = userRepository.findById(id);
@@ -57,7 +60,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "users/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("users/{id}")
     public User delete(@PathVariable Long id) {
 
         Optional<User> existingUser = userRepository.findById(id);
